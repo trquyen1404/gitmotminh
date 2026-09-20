@@ -1,27 +1,27 @@
-import matplotlib
-matplotlib.use('Agg')  # Chuyển backend sang chế độ không GUI để chạy mượt trên WSL/Linux
 
-import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # Chuyển backend sang lưu file (phù hợp chạy trên Server SSH)
 import matplotlib.pyplot as plt
 
-# 1. Khởi tạo tham số thời gian và tần số
-t = np.linspace(0, 10, 1000)
-gamma = 0.5            # Hệ số dập tắt
-omega = 2 * np.pi * 1.0 # Tần số góc
+# 1. Nhập số sinh viên nam, nữ trong 1 lớp
+nam = int(input("Nhập số sinh viên Nam: "))
+nu = int(input("Nhập số sinh viên Nữ: "))
 
-# 2. Công thức dao động dập tắt: x(t) = e^(-gamma * t) * cos(omega * t)
-x = np.exp(-gamma * t) * np.cos(omega * t)
+# 2. Hiển thị biểu đồ cột số sinh viên nam nữ
+categories = ['Nam', 'Nữ']
+quantities = [nam, nu]
 
-# 3. Vẽ đồ thị
-plt.figure(figsize=(10, 6))
-plt.plot(t, x, label=r'$x(t) = e^{-\gamma t} \cos(\omega t)$', color='blue', linewidth=2)
-plt.axhline(0, color='black', linestyle='--', linewidth=0.8)
-plt.title('Mo phong Dao dong Dap tat (Damped Harmonic Oscillation)', fontsize=14)
-plt.xlabel('Thoi gian t (s)', fontsize=12)
-plt.ylabel('Li do x(t)', fontsize=12)
-plt.grid(True, linestyle=':', alpha=0.6)
-plt.legend(fontsize=12)
+plt.figure(figsize=(6, 5))
+plt.bar(categories, quantities, color=['#1f77b4', '#e377c2'], width=0.4)
+plt.title('THỐNG KÊ SỐ LƯỢNG SINH VIÊN NAM NỮ')
+plt.xlabel('Giới tính')
+plt.ylabel('Số lượng (Sinh viên)')
 
-# 4. Xuất đồ thị ra file ảnh .png
-plt.savefig('damped_oscillation_plot.png', dpi=300)
-print("Đã thực thi thành công và xuất file ảnh damped_oscillation_plot.png!")
+# Hiển thị giá trị cụ thể trên đỉnh mỗi cột
+for i, val in enumerate(quantities):
+    plt.text(i, val + 0.1, str(val), ha='center', fontweight='bold')
+
+# Lưu biểu đồ thành file ảnh
+plt.savefig('bieudo_nam_nu.png', dpi=300)
+print("Đã vẽ và lưu biểu đồ vào file bieudo_nam_nu.png thành công!")
+>>>>>>> a881dc3 (khoi tao va cap nhat ma nguon)
