@@ -24,4 +24,3 @@ for i, val in enumerate(quantities):
 # Lưu biểu đồ thành file ảnh
 plt.savefig('bieudo_nam_nu.png', dpi=300)
 print("Đã vẽ và lưu biểu đồ vào file bieudo_nam_nu.png thành công!")
->>>>>>> a881dc3 (khoi tao va cap nhat ma nguon)
