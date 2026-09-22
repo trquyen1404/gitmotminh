@@ -7,7 +7,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 app = Flask(__name__)
-#aaaa
+#conflict1
 HTML = """<!doctype html>
 <html lang="vi">
 <head>
